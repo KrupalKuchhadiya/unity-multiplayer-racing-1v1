@@ -8,18 +8,18 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Post Processing
   - Water
   - UI
-  - 
-  - 
+  - Vehicles
+  - Vehicle Wheels
+  - Ground Surfaces
+  - Buildings
+  - Obstacles
   - RCC_Vehicle
   - RCC_WheelCollider
   - RCC_DetachablePart
   - RCC_Prop
-  - 
-  - 
-  - 
   - 
   - 
   - 
@@ -43,10 +43,3 @@ TagManager:
     locked: 0
   m_RenderingLayers:
   - Default
-  - Light Layer 1
-  - Light Layer 2
-  - Light Layer 3
-  - Light Layer 4
-  - Light Layer 5
-  - Light Layer 6
-  - Light Layer 7
