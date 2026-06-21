@@ -94,9 +94,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FlakesIntensity: 1.75
+    - _FlakesIntensity: 1.43
     - _FlakesPower: 6
-    - _FlakesRimPower: 0.75
+    - _FlakesRimPower: 0.869
     - _FresnelPower: 0.15
     - _GlossMapScale: 1
     - _Glossiness: 1.5
