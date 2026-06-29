@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace KrupalKuchhadiya.Portfolio._1V1_Racing_3D
@@ -10,7 +11,21 @@ namespace KrupalKuchhadiya.Portfolio._1V1_Racing_3D
         public int totalLaps = 3;
         public int totalCheckpoints = 5;
 
+        public bool isRaceCompleted;
+
         private int expectedCheckpoint = 0;
+
+        [SerializeField] List<string> allLapTimeEntry;
+        [SerializeField] List<float> allLapTime;
+        [SerializeField] float lapTime;
+
+        private void FixedUpdate()
+        {
+            if (!isRaceCompleted)
+            {
+                lapTime += Time.deltaTime;
+            }
+        }
 
         public /*override*/ void Spawned()
         {
@@ -41,9 +56,9 @@ namespace KrupalKuchhadiya.Portfolio._1V1_Racing_3D
             // ?? Completed lap
             if (expectedCheckpoint >= totalCheckpoints)
             {
+                MakeLapEntry();
                 expectedCheckpoint = 0;
                 CurrentLap++;
-
                 Debug.Log($"Lap Completed: {CurrentLap}");
 
                 if (CurrentLap >= totalLaps)
@@ -56,7 +71,21 @@ namespace KrupalKuchhadiya.Portfolio._1V1_Racing_3D
         private void FinishRace()
         {
             //Debug.Log($"Player {Object.InputAuthority} finished race!");
+            isRaceCompleted = true;
             RaceManager.Instance.PlayerFinished(this);
+        }
+
+        private void MakeLapEntry()
+        {
+            allLapTime.Add(lapTime);
+            System.TimeSpan time = System.TimeSpan.FromSeconds(lapTime);
+
+            allLapTimeEntry.Add(string.Format("{0:00}:{1:00}:{2:00}:{3:000}",
+                    time.Hours,
+                    time.Minutes,
+                    time.Seconds,
+                    time.Milliseconds));
+            lapTime = 0f;
         }
 
         public int GetProgress()

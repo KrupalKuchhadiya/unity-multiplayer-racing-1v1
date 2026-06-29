@@ -1,13 +1,16 @@
 {
     "name": "1v1Racing3D",
     "rootNamespace": "KrupalKuchhadiya.Portfolio._1V1_Racing_3D",
-    "references": [],
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:1c3aa8ac9c31c424bb42f2bb6c652f50"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
-    "autoReferenced": false,
+    "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false

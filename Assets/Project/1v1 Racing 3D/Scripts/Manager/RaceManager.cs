@@ -10,6 +10,8 @@ namespace KrupalKuchhadiya.Portfolio._1V1_Racing_3D
         private List<PlayerLapTracker> players = new List<PlayerLapTracker>();
         private List<PlayerLapTracker> finishedPlayers = new List<PlayerLapTracker>();
 
+        public List<Checkpoint> allCheckpoints;
+
         private void Awake()
         {
             Instance = this;
@@ -34,6 +36,20 @@ namespace KrupalKuchhadiya.Portfolio._1V1_Racing_3D
         {
             players.Sort((a, b) => b.GetProgress().CompareTo(a.GetProgress()));
             return players;
+        }
+    
+        /// <summary>
+        /// Helper methods
+        /// </summary>
+
+        public Checkpoint GetNextCheckpoint(Checkpoint currentCheckpoint)
+        {
+            if (currentCheckpoint == allCheckpoints[allCheckpoints.Count - 1]) return allCheckpoints[0];
+            else
+            {
+                int index = allCheckpoints.IndexOf(currentCheckpoint);
+                return allCheckpoints[index+1];
+            }
         }
     }
 }
